@@ -1,0 +1,11 @@
+# Exemples de travaux générés (non publiés)
+outputs/
+
+# Python
+__pycache__/
+*.pyc
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini

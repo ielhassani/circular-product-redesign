@@ -1,0 +1,4 @@
+interface:
+  display_name: "Circular Product Redesign"
+  short_description: "Link circular roadmap, strategies and component routes"
+  default_prompt: "Use $circular-product-redesign to assess the baseline, apply Steps 0-6, link all concepts to the six strategy axes and evidence-based component hierarchy, compare measurable outcomes, and develop the requested visual or CAD handoff."
