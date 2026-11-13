@@ -1,75 +1,75 @@
 # Circular Product Redesign
 
-Un skill pour Claude qui guide la reconception circulaire d'un produit physique, étape par étape.
+A Claude skill that guides the circular redesign of a physical product, step by step.
 
-Il s'appuie sur trois couches liées :
+It is built on three connected layers:
 
-- **une feuille de route en 7 étapes (0 à 6)** qui ordonne le travail : du diagnostic du produit existant jusqu'à l'évaluation de la reconception ;
-- **six axes de stratégie** qui orientent ce qu'il faut concevoir : *Narrow, Slow (long life), Slow (life extension), Close, Regenerate, Inform* ;
-- **une hiérarchie de rétention de valeur** appliquée à chaque composant : *Maintain → Repair → Reuse → Refurbish → Remanufacture → Recycle*.
+- **A 7-step roadmap (Steps 0 to 6)** that orders the work, from diagnosing the existing product to evaluating the redesign.
+- **Six design strategy axes** that guide what to design: *Narrow, Slow (long life), Slow (life extension), Close, Regenerate, Inform*.
+- **A value-retention hierarchy** applied to each component: *Maintain → Repair → Reuse → Refurbish → Remanufacture → Recycle*.
 
-Le skill produit un diagnostic de départ, plusieurs concepts distincts, une comparaison chiffrée, des illustrations, et, si vous le demandez, un brief CAO et un fichier STEP conceptuel vérifié.
+The skill produces a baseline diagnosis, several distinct concepts, a quantitative comparison, illustrations and, on request, a CAD brief and a checked conceptual STEP file.
 
 ## Installation
 
-### Avec Claude Code
+### With Claude Code
 
-Clonez le dépôt dans votre dossier de skills personnels :
+Clone the repository into your personal skills folder:
 
 ```bash
 git clone https://github.com/ielhassani/circular-product-redesign.git ~/.claude/skills/circular-product-redesign
 ```
 
-Sous Windows (PowerShell) :
+On Windows (PowerShell):
 
 ```powershell
 git clone https://github.com/ielhassani/circular-product-redesign.git "$HOME\.claude\skills\circular-product-redesign"
 ```
 
-Pour l'utiliser dans un seul projet, clonez-le plutôt dans `.claude/skills/circular-product-redesign` à la racine de ce projet.
+To use it in a single project only, clone it into `.claude/skills/circular-product-redesign` at the root of that project instead.
 
-Redémarrez ensuite Claude Code.
+Then restart Claude Code.
 
-### Avec Claude (application web ou bureau)
+### With Claude (web or desktop app)
 
-1. Cliquez sur **Code → Download ZIP** en haut de cette page.
-2. Dans Claude, ouvrez les paramètres, puis la section des **Skills**, et importez le fichier ZIP.
-3. Activez le skill.
+1. Click **Code → Download ZIP** at the top of this page.
+2. In Claude, open the settings, go to the **Skills** section, and upload the ZIP file.
+3. Turn the skill on.
 
-Le dossier contenu dans le ZIP doit contenir directement le fichier `SKILL.md`.
+The folder inside the ZIP must contain the `SKILL.md` file directly.
 
-## Utilisation
+## Usage
 
-Décrivez simplement le produit à reconcevoir. Par exemple :
+Describe the product you want to redesign. For example:
 
-> Utilise le skill circular-product-redesign pour reconcevoir cette bouilloire électrique. Voici une photo et ce que je sais de ses matériaux.
+> Use the circular-product-redesign skill to redesign this electric kettle. Here is a photo and what I know about its materials.
 
-Dans Claude Code, vous pouvez aussi taper `/circular-product-redesign`.
+In Claude Code, you can also type `/circular-product-redesign`.
 
-Conseils :
+Tips:
 
-- Donnez le plus d'informations possible : photos, matériaux, dimensions, usage, fin de vie actuelle. Le skill distingue toujours ce qui est observé, calculé, supposé ou inconnu.
-- Précisez jusqu'où aller. Sans précision, le skill fait une reconception complète (concepts, comparaison, illustrations, CAO). Vous pouvez demander seulement le diagnostic ou seulement les concepts.
-- Pour un produit nouveau, indiquez le service de référence auquel le comparer.
+- Give as much information as you can: photos, materials, dimensions, use, current end of life. The skill always separates what is observed, calculated, assumed or unknown.
+- Say how far to go. By default, the skill runs a full redesign (concepts, comparison, illustrations, CAD). You can ask for the diagnosis only, or the concepts only.
+- For a new product, state the reference service it should be compared with.
 
-## Contenu du dépôt
+## Repository contents
 
-| Fichier ou dossier | Rôle |
+| File or folder | Purpose |
 |---|---|
-| `SKILL.md` | Instructions principales du skill |
-| `references/` | Méthode détaillée : feuille de route, évaluation, données de comparaison, CAO, livrables, sources |
-| `scripts/calculate_scores.py` | Score de conception complémentaire pour comparer deux options |
-| `scripts/compare_concepts.py` | Le même score pour plusieurs concepts |
-| `scripts/verify_step.py` | Vérification d'un fichier STEP par aller-retour |
-| `agents/openai.yaml` | Configuration pour une utilisation avec Codex d'OpenAI |
+| `SKILL.md` | Main skill instructions |
+| `references/` | Detailed method: roadmap, assessment, comparison data, CAD, deliverables, sources |
+| `scripts/calculate_scores.py` | Supplementary design score to compare two options |
+| `scripts/compare_concepts.py` | The same score for several concepts |
+| `scripts/verify_step.py` | Round-trip check of a STEP file |
+| `agents/openai.yaml` | Configuration for use with OpenAI Codex |
 
-## Prérequis
+## Requirements
 
-- **Python 3** pour les scripts de score. Ils n'utilisent que la bibliothèque standard.
-- **CadQuery** (`pip install cadquery`), seulement pour vérifier des fichiers STEP avec `verify_step.py`.
+- **Python 3** for the scoring scripts. They use only the standard library.
+- **CadQuery** (`pip install cadquery`), only to check STEP files with `verify_step.py`.
 
-## Limites à garder en tête
+## Limitations to keep in mind
 
-- Les scores calculés par les scripts sont des indicateurs de conception complémentaires. Ce ne sont ni un pourcentage de circularité, ni un indicateur MCI, ni un résultat ISO.
-- Les illustrations et les modèles CAO sont **conceptuels**. Ils ne prouvent ni la sécurité, ni la conformité, ni la faisabilité industrielle.
-- Vérifiez toujours les normes, réglementations et filières de recyclage actuelles auprès de sources primaires.
+- The scores from the scripts are supplementary design indicators. They are not a circularity percentage, an MCI value or an ISO result.
+- Illustrations and CAD models are **conceptual**. They do not prove safety, compliance or manufacturability.
+- Always check current standards, regulations and recycling routes against primary sources.
